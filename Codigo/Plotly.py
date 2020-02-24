@@ -60,5 +60,5 @@ offline.plot(figg, filename='simple_candlestick')
 # py.iplot(fig)
 
 # -- plot offline desde jupyter
-offline.plot(fig)
+offline.plot(fig, Mean, Upper, Lower)
 
