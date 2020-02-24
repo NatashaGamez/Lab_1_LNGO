@@ -5,7 +5,7 @@ import numpy as np  # funciones numericas
 pio.renderers.default = "notebook"  # render de imagenes para correr en script
 
 
-def g_velas(p0_de):
+def g_velas(p0_de, dsv):
     """
     :param p0_de: data frame con datos a graficar
     :return fig:
@@ -21,8 +21,8 @@ def g_velas(p0_de):
     std = p0_de['close'].rolling(window=20).std()
     # Agregar al DataFrame datos de bandas
     p0_de['Mean'] = mean
-    p0_de['Upper'] = mean + (std * 2)
-    p0_de['Lower'] = mean - (std * 2)
+    p0_de['Upper'] = mean + (std * dsv)
+    p0_de['Lower'] = mean - (std * dsv)
 
     fig = go.Figure(data=[go.Candlestick(x=p0_de['timestamp'],
                                        open=p0_de['open'], high=p0_de['high'],
